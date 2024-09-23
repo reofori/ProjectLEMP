@@ -258,4 +258,16 @@ sudo echo ‘Hello LEMP from hostname’ $(curl -s http://169.254.169.254/latest
 ```
 ![php4](images/php4.png)
 
+Now go to your browser and try to open your website URL using IP address:
+```
+http://<Public-IP-Address>:80
+```
+![Hello lemp](images/Hello%20lemp.png)
+
+You can also access your website in your browser by public DNS name, not only by IP - try it out, the result must be the same (port is optional):
+```
+http://<Public-DNS-Name>:80
+```
+![Hello lemp1](images/Hello%20lemp1.png)
+
 
