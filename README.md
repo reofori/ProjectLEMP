@@ -98,5 +98,11 @@ __6.__ __Another way to retrieve the public ip address other than check the aws 
 curl -s http://169.254.169.254/latest/meta-data/public-ipv4
 ```
 
+## Installing Mysql
+1. **mysql is popular relational database**:
+   ```bash
+   sudo apt install mysql-server
+   ```
+![mysql](images/mysql.png)
 
 
