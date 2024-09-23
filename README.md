@@ -121,4 +121,20 @@ exit
 ```
 ![mysql2](images/mysql2.png)
 
+4.**Start the interactive script by running:**
+```
+sudo mysql_secure_installation
+```
+![mysql3](images/mysql3.png)
 
+__5.__ __After changing root user password, log in to MySQL console.__
+
+A command prompt for password was noticed after running the command below.
+```
+sudo mysql -p
+```
+Exit MySQL shell
+```
+exit
+```
+![mysql4](images/mysql4.png)
