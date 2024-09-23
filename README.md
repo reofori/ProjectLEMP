@@ -32,6 +32,7 @@ This combination offers a powerful, scalable, and flexible platform for web deve
    - Allow inbound traffic on ports 80 (HTTP), 22 (SSH), and 443 (HTTPS) from your IP address
 ![inbound rule](images/inbound%20rule.png)
 
-And make sure our instance is up and running.
+4. **Review and Launch**:
+ - Review the configuration and launch the instance.
 ![review instance](images/review%20instance.png)
 
