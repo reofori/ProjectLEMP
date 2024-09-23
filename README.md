@@ -138,3 +138,11 @@ Exit MySQL shell
 exit
 ```
 ![mysql4](images/mysql4.png)
+
+## Installing PHP
+1.**To Install php, run**:
+
+```bash
+sudo apt install php-fpm php-mysql
+```
+![php](images/php.png)
