@@ -105,4 +105,20 @@ curl -s http://169.254.169.254/latest/meta-data/public-ipv4
    ```
 ![mysql](images/mysql.png)
 
+2.**log into mysql**:
+   ```bash
+   sudo mysql
+   ```
+
+3.**running a security script to set password for the root user using  mysql_native_password***:
+   ```
+   ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'PassWord.1';
+   ```
+
+Exit the MySQL shell
+```
+exit
+```
+![mysql2](images/mysql2.png)
+
 
