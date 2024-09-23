@@ -76,3 +76,27 @@ sudo systemctl status Nginx
 ```
 If it green and running, then it is correctly installed
 ![git bash3](images/git%20bash3.png)
+
+__4.The server is running and can be accessed locally in the ubuntu shell by running the command below:__
+
+```
+curl http://localhost:80
+OR
+curl http://127.0.0.1:80
+```
+![git bash4](images/git%20bash4.png)
+
+5.**Test how Nginx can respond to request over the internet**
+```
+http://<public-ip address>:80
+```
+![nginx server](images/nginx%20server.png)
+
+__6.__ __Another way to retrieve the public ip address other than check the aws console__
+
+```
+curl -s http://169.254.169.254/latest/meta-data/public-ipv4
+```
+
+
+
