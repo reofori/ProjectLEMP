@@ -243,18 +243,19 @@ We also need to disable default Nginx host that is currently configured to liste
 sudo unlink /etc/nginx/sites-enabled/default
 ```
 
+
 When ready, we reload nginx and apply changes made.
 
 ```bash
 sudo systemctl reload nginx
 ```
 
+
 Our website is now active! We then create an index.html file in the location so that we can test that our new server block works as expected:
 
 ```bash
-sudo echo 'Hello LEMP from Celyne Kydd' $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectLEMP/index.html
+sudo echo ‘Hello LEMP from hostname’ $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) ‘with public IP’ $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectLEMP/index.html
 ```
-
 ![php4](images/php4.png)
 
 
