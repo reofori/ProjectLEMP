@@ -268,6 +268,125 @@ You can also access your website in your browser by public DNS name, not only by
 ```
 http://<Public-DNS-Name>:80
 ```
-![Hello lemp1](images/Hello%20lemp1.png)
+![hello lemp1](images/hello%20lemp1.png)
 
+## Testing PHP with Nginx
+
+**1. Create a test PHP file in the document root. Open a new file called info.php within the document root.**
+```bash
+nano /var/www/projectLEMP/info.php
+```
+
+paste the code below:
+```bash
+<?php
+phpinfo();
+```
+
+**2. We can now access this page in our web browser by visiting the domain name followed by `/info.php:`**
+```bash
+http://34.238.232.0/info.php
+```
+
+After checking the details about PHP, it is best to remove the file as it contain sensitive information:
+```bash
+sudo rm /var/www/projectLEMP/info.php
+```
+![php5](images/php5.png)   ![php6](images/php6.png)
+
+# Retrieving Data from MySQL Database with PHP
+1.**connect to MYSQL database** 
+```bash
+sudo mysql
+```
+
+2.**create a new Database**
+```bash
+mysql> CREATE DATABASE `example_database`;
+```
+
+3.**create a user and grant the user full priviledge with password**
+```bash
+mysql>  CREATE USER 'my_user'@'%' IDENTIFIED WITH mysql_native_password BY 'PassWord.2';
+
+mysql> GRANT ALL ON example_database.* TO 'my_user'@'%';
+```
+
+4.**Now exit the MySQL shell with:**
+```bash
+mysql> exit
+```
+
+5. **check if the user has proper permission by logging**
+```bash
+$ mysql -u my_user -p
+```
+
+6.**After logging in to the MySQL console, confirm that you have access to the example_database database:**
+```bash
+mysql> SHOW DATABASES;
+```
+
+7.**Next, we’ll create a test table named todo_list. From the MySQL console, run the following statement:**
+```bash
+CREATE TABLE example_database.todo_list (
+mysql>     item_id INT AUTO_INCREMENT,
+mysql>     content VARCHAR(255),
+mysql>     PRIMARY KEY(item_id)
+mysql> );
+```
+![database3](images/database3.png)
+
+8.**Insert a few rows of content in the test table. You might want to repeat the next command a few times, using different VALUES:**
+```bash
+mysql> INSERT INTO example_database.todo_list (content) VALUES ("My first important item");
+mysql> INSERT INTO example_database.todo_list (content) VALUES ("My second important item");
+mysql> INSERT INTO example_database.todo_list (content) VALUES ("My third important item");
+```
+
+9.**To confirm that the data was successfully saved to your table, run:**
+```bash
+mysql>  SELECT * FROM example_database.todo_list;
+```
+![database4](images/database4.png)
+
+10.**After confirming that you have valid data in your test table, you can exit the MySQL console:**
+```bash
+mysql> exit
+```
+
+11.**Now we create a PHP script that will connect to MySQL and query for our content.**
+```bash
+nano /var/www/projectLEMP/todo_list.php
+```
+
+12.**Copy this content into your todo_list.php script:**
+```bash
+<?php
+$user = "example_user";
+$password = "PassWord.1";
+$database = "example_database";
+$table = "todo_list";
+
+try {
+  $db = new PDO("mysql:host=localhost;dbname=$database", $user, $password);
+  echo "<h2>TODO</h2><ol>";
+  foreach($db->query("SELECT content FROM $table") as $row) {
+    echo "<li>" . $row['content'] . "</li>";
+  }
+  echo "</ol>";
+} catch (PDOException $e) {
+    print "Error!: " . $e->getMessage() . "<br/>";
+    die();
+}
+```
+**save and close**
+
+**You can now access this page in your web browser by visiting the domain name or public IP address configured for your website, followed by /todo_list.php:**
+```bash
+http://34.238.232.0/todo_list.php
+```
+
+## conclusion
+we have successfully set up a LEMP stack on an Amazon EC2 instance using GIT Bash for remote server access. You can now deploy and host your web applications on this environment.
 
