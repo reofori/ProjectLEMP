@@ -68,3 +68,11 @@ ssh -i "my-ec2-key.pem" ubuntu@18.209.18.61
    ```bash
 sudo apt install Nginx -y
 ```
+![git bash2](images/git%20bash2.png)
+
+3.**Enable and verify that Nginx is running on as a service on the OS**:
+```bash
+sudo systemctl status Nginx
+```
+If it green and running, then it is correctly installed
+![git bash3](images/git%20bash3.png)
