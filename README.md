@@ -149,15 +149,66 @@ sudo apt install php-fpm php-mysql
 
 ## Configuring Nginx to use PHP processor
 
-Create a root web directory for your_domain:
+**Create a root web directory for your_domain:**
 
 ```bash
 sudo mkdir /var/www/projectLEMP
 ```
 
-Next, we assign ownership of the directory with the $USER environment variable, which will reference our current system user:
+**Next, we assign ownership of the directory with the $USER environment variable, which will reference our current system user:**
 
 ```bash
 sudo chown -R $USER:USER /var/www/projectLEMP
 ```
 ![php1](images/php1.png)
+
+Then, we open a new configuration file in nginx's `sites-available` using nano:
+
+```bash
+sudo nano /etc/nginx/sites-available/projectLEMP
+```
+
+This will create a new blank file. Paste in the following bare-bones configuration:
+
+```bash
+#/etc/nginx/sites-available/projectLEMP
+
+server {
+   listen 80;
+   server_name projectLEMP www.projectLEMP;
+   root /var/www/projectLEMP;
+
+   index index.html index.htm index.php;
+
+   location / {
+       try_files $uri $uri/ =404;
+   }
+
+   location ~ \.php$ {
+       include snippets/fastcgi-php.conf:
+       fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
+   }
+
+   location ~ /\.ht {
+       deny all;
+   }
+
+}
+```
+![php3](images/php3.png)  ![php2](images/php2.png)
+
+### Here’s what each directives and location blocks does:
+
+- __listen__ - Defines what port nginx listens on. In this case it will listen on port 80, the default port for HTTP.
+
+- __root__ - Defines the document root where the files served by this website are stored.
+
+- __index__ - Defines in which order Nginx will prioritize the index files for this website. It is a common practice to list index.html files with a higher precedence than index.php files to allow for quickly setting up a maintenance landing page for PHP applications. You can adjust these settings to better suit your application needs.
+
+- __server_name__ - Defines which domain name and/or IP addresses the server block should respond for. Point this directive to your domain name or public IP address.
+
+- __location /__ - The first location block includes the try_files directive, which checks for the existence of files or directories matching a URI request. If Nginx cannot find the appropriate result, it will return a 404 error.
+
+- __location ~ \.php$__ - This location handles the actual PHP processing by pointing Nginx to the fastcgi-php.conf configuration file and the php7.4-fpm.sock file, which declares what socket is associated with php-fpm.
+
+- __location ~ /\.ht__ - The last location block deals with .htaccess files, which Nginx does not process. By adding the deny all directive, if any .htaccess files happen to find their way into the document root, they will not be served to visitors.
