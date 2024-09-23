@@ -212,3 +212,49 @@ server {
 - __location ~ \.php$__ - This location handles the actual PHP processing by pointing Nginx to the fastcgi-php.conf configuration file and the php7.4-fpm.sock file, which declares what socket is associated with php-fpm.
 
 - __location ~ /\.ht__ - The last location block deals with .htaccess files, which Nginx does not process. By adding the deny all directive, if any .htaccess files happen to find their way into the document root, they will not be served to visitors.
+
+then we save and close the file.  
+Next, we activate our configuration by linking the config file from nginx's `sites-enabled` directory.
+
+```bash
+sudo ln -s /etc/nginx/sites-available/projectLEMP /etc/nginx/sites-enabled/
+```
+
+This will tell nginx to use the configuration next time it is reloaded.  
+We test our configuration for syntax eroors by:
+
+```bash
+sudo nginx -t
+```
+
+It should return:
+
+```bash
+nginx: the configuration file /etc/nginx/nginx.conf syntax is okay
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+```
+![php3](images/php3.png)
+
+If any errors are reported, go back to your configuration file to review its contents before continuing.
+
+We also need to disable default Nginx host that is currently configured to listen on port 80, for this run:
+
+```bash
+sudo unlink /etc/nginx/sites-enabled/default
+```
+
+When ready, we reload nginx and apply changes made.
+
+```bash
+sudo systemctl reload nginx
+```
+
+Our website is now active! We then create an index.html file in the location so that we can test that our new server block works as expected:
+
+```bash
+sudo echo 'Hello LEMP from Celyne Kydd' $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectLEMP/index.html
+```
+
+![php4](images/php4.png)
+
+
