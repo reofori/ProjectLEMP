@@ -20,4 +20,5 @@ This combination offers a powerful, scalable, and flexible platform for web deve
    - Create a key pair
    - Navigate to EC2 Dashboard.
    - Click on "Launch Instance" and choose Ubuntu Server 24.04 LTS as the operating system.
-![key pair](images/key%20pair.png)
+![key pair](images/key%20pair.png)     ![launch instance](images/launch%20instance.png)
+
