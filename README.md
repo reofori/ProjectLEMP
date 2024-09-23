@@ -12,3 +12,12 @@ Our setup utilizes the following technologies:
 - **PHP:** Versatile server-side scripting language
 
 This combination offers a powerful, scalable, and flexible platform for web development and deployment.
+
+## Setting up the EC2 Instance
+
+1. **Launch an EC2 Instance**: 
+   - Sign in to the AWS Management Console.
+   - Create a key pair
+   - Navigate to EC2 Dashboard.
+   - Click on "Launch Instance" and choose Ubuntu Server 24.04 LTS as the operating system.
+![key pair](images/key%20pair.png)
