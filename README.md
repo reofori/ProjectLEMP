@@ -36,3 +36,22 @@ This combination offers a powerful, scalable, and flexible platform for web deve
  - Review the configuration and launch the instance.
 ![review instance](images/review%20instance.png)
 
+
+5. **Connect to the Instance**:
+   - Use Git Bash to connect to the instance via SSH.
+![ssh client](images/ssh%20client.png)
+
+8. **Grant Permission for the private key and SSH to the instance**
+  - We then launch bash and go to the directory where our `.pem` file is.
+
+```bash
+$ cd downloads
+```
+
+Next, we run these commands to make sure our server is up and running
+
+```
+chmod 400 my-ec2-key.pem
+ssh -i "my-ec2-key.pem" ubuntu@18.209.18.61
+```
+![git bash](images/git%20bash.png)
