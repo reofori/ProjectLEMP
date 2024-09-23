@@ -381,11 +381,13 @@ try {
 }
 ```
 **save and close**
+![database6](images/database6.png)
 
 **You can now access this page in your web browser by visiting the domain name or public IP address configured for your website, followed by /todo_list.php:**
 ```bash
 http://34.238.232.0/todo_list.php
 ```
+![todo_list](images/todo%20list.png)
 
 ## conclusion
 we have successfully set up a LEMP stack on an Amazon EC2 instance using GIT Bash for remote server access. You can now deploy and host your web applications on this environment.
