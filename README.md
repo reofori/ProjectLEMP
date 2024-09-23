@@ -6,9 +6,9 @@ This repository contains documentation for setting up a LEMP (Linux, Nginx, MySQ
 ### Stack Components
 Our setup utilizes the following technologies:
 
-Linux: Ubuntu Server 20.04 LTS
-Engine-X (Nginx): High-performance HTTP server
-MySQL: Reliable relational database management system
-PHP: Versatile server-side scripting language
+- *Linux:* Ubuntu Server 24.04 LTS
+- *Engine-X (Nginx):* High-performance HTTP server
+- *MySQL:* Reliable relational database management system
+- *PHP:* Versatile server-side scripting language
 
 This combination offers a powerful, scalable, and flexible platform for web development and deployment.
