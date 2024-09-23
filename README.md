@@ -55,3 +55,16 @@ chmod 400 my-ec2-key.pem
 ssh -i "my-ec2-key.pem" ubuntu@18.209.18.61
 ```
 ![git bash](images/git%20bash.png)
+
+## Installing the Nginx Web Server
+
+1. **Update Package Repository**:
+   ```bash
+   sudo apt update
+   ```
+![git bash1](images/git%20bash1.png)
+
+2.**Install Nginx**
+   ```bash
+sudo apt install Nginx -y
+```
