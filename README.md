@@ -140,9 +140,24 @@ exit
 ![mysql4](images/mysql4.png)
 
 ## Installing PHP
-1.**To Install php, run**:
+**To Install php, run**:
 
 ```bash
 sudo apt install php-fpm php-mysql
 ```
 ![php](images/php.png)
+
+## Configuring Nginx to use PHP processor
+
+Create a root web directory for your_domain:
+
+```bash
+sudo mkdir /var/www/projectLEMP
+```
+
+Next, we assign ownership of the directory with the $USER environment variable, which will reference our current system user:
+
+```bash
+sudo chown -R $USER:USER /var/www/projectLEMP
+```
+![php1](images/php1.png)
